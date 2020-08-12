@@ -33,3 +33,10 @@ Or, if you don't have GraalVM installed, you can run the native executable build
 You can then execute your native executable with: `./build/crud-1.0.0-SNAPSHOT-runner`
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/gradle-tooling#building-a-native-executable.
+
+# PostgreSQL
+
+    docker run --ulimit memlock=-1:-1 -it --rm=true --memory-swappiness=0 \
+        --name postgres-quarkus-rest-http-crud -e POSTGRES_USER=restcrud \
+        -e POSTGRES_PASSWORD=restcrud -e POSTGRES_DB=rest-crud \
+        -p 5432:5432 postgres:10.5
